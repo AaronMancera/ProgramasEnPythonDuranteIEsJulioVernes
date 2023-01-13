@@ -17,7 +17,8 @@ def definirDescuento(nombre,descuento):
         if nombre==productos[i]["Nombre"]:
             producto=productos[i]
             producto["Descuento"]=descuento
-            producto["Precio"]=float(producto["Precio"] - (float(producto["Precio"])*float(descuento)/100) )
+            #Si queremos ahorrarnos la funcion calcularImporteFinal se inscribe el precio con el descuento calculado en el diccionario
+            #producto["Precio"]=float(producto["Precio"] - (float(producto["Precio"])*float(descuento)/100) )
         
 #Esta funcion define el iva del producto y tambien lo aplica al precio del diccionario
 def definirIVA(nombre,iva):
@@ -26,10 +27,19 @@ def definirIVA(nombre,iva):
         if nombre==productos[i]["Nombre"]:
             producto=productos[i]
             producto["IVA"]=iva
-            producto["Precio"]=(float(producto["Precio"])*float(iva)/100) + float(producto["Precio"])
-
+            #Si queremos ahorrarnos la funcion calcularImporteFinal se inscribe el precio con el iva calculado en el diccionario
+            #producto["Precio"]=(float(producto["Precio"])*float(iva)/100) + float(producto["Precio"])
+#Esta función calculara el precio final respecto a su descuento y a su iva
+def calcularImporteFinal(producto):
+        nombre=producto["Nombre"]
+        precio=float(producto["Precio"])
+        descuento=float(producto["Descuento"])
+        iva=float(producto["IVA"])
+        total=precio-precio*descuento/100+precio*iva/100
+        print(f"El precio total de {nombre} es de: {total}")
 
 productos={}
+#tupla de los productos para insertar
 nombre=("Patatas","Pizza","Bocadillo de atun","Ensalada")
 #Creacion
 for i in range (len(nombre)):
@@ -53,3 +63,8 @@ for i in productos:
     iva=input("Escriba el iva (sin %): ")
     definirIVA(nombre,iva)
 #print(productos)
+print("Resultado final de cada producto")
+for i in productos:
+    calcularImporteFinal(productos[i])
+print("El diccionario de productos con sus precios")
+print(productos)
