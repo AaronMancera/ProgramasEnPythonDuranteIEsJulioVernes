@@ -13,6 +13,8 @@ Programa
 '''
 path="./UT5.P7.ManceraAaron/datos/estaciones.csv"
 print("-------- Bienvenido al programa GESTION DE ESTACIONES --------")
+print("|            1. Mostrar los datos paginado                   |")
+print("|            2. Mostar ordenado por espacios                 |")
+print("|            3. Mostrar todas las estaciones con bicicletas  |")
 print("Cargando fichero....")
-with open(path,encoding='utf-8') as file:
     
