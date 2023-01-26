@@ -11,3 +11,8 @@ Enunciado descriptivo como si fuera una tarea
 Programa
 
 '''
+path="./UT5.P7.ManceraAaron/datos/estaciones.csv"
+print("-------- Bienvenido al programa GESTION DE ESTACIONES --------")
+print("Cargando fichero....")
+with open(path,encoding='utf-8') as file:
+    
