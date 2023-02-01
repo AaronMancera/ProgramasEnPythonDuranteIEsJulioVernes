@@ -28,7 +28,8 @@ def contandoMina(campo):
             if campo[x][y] == -1:
                 resultado[x][y]= -1
                 continue
-            #A continuacion de saber que tiene mina se estudia cuantas casillas tiene esta bomba alrededor
+            #A continuacion de saber que tiene mina se estudia cuantas casillas tiene esta bomba alrededor, arriba abajo izq y der todo eso lo revisa
+            # con el bombasX y bombasY
             for bombasX in range(-1,2):
                 for bombasY in range(-1,2):
                     fila=x+bombasX
