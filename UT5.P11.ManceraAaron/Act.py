@@ -48,7 +48,7 @@ def mostrarTodosLosParticipantes():
     print("Mostrando los participantes")
     with open(path,encoding='utf-8') as file:
         lector = csv.reader(file)
-        next(lector)
+
         for line in lector:
             for palabra in line:
                 segmentado=palabra.split(":")
@@ -56,8 +56,9 @@ def mostrarTodosLosParticipantes():
     print()
 
 def combinacionGanadora():
+    numerosGanadores=[]
     print("1. Genera la combinación ganadora aleatoriamente.")
-    print("2. Dejar que yo escribir manualmente.")
+    print("2. Dejar que yo escribir manualmente (numeros no repetidos).")
     combi=int(input("Opcion: "))
     if combi==1:
         print()
@@ -68,9 +69,13 @@ def combinacionGanadora():
     elif combi==2:
         print()
         for i in range(6):
-            numeroGanador=int(input("Introduce el numero ganador: "))
+            numeroGanador=int(input("Introduce el numero ganador "+str(i)+": "))
+            if numeroGanador in numerosGanadores:
+                print("Error")
+                numerosGanadores=[]
+                break
             numerosGanadores.append(numeroGanador)
-        print(numerosGanadores)
+        #print(numerosGanadores)
     else:
         print("Error, vuelva a intentarlo...")
     print()
@@ -95,7 +100,7 @@ def comprobarAcierto3():
     print("Mostrando los participantes ganadores de 3 aciertos")
     with open(path,encoding='utf-8') as file:
         lector = csv.reader(file)
-        next(lector)
+
         for line in lector:
             cont=0
             #print(line)
@@ -118,7 +123,7 @@ def comprobarAcierto4():
     print("Mostrando los participantes ganadores de 4 aciertos")
     with open(path,encoding='utf-8') as file:
         lector = csv.reader(file)
-        next(lector)
+
         for line in lector:
             cont=0
             #print(line)
@@ -140,7 +145,7 @@ def comprobarAcierto5():
     print("Mostrando los participantes ganadores de 5 aciertos")
     with open(path,encoding='utf-8') as file:
         lector = csv.reader(file)
-        next(lector)
+
         for line in lector:
             cont=0
             #print(line)
@@ -162,21 +167,22 @@ def comprobarAcierto6():
     print("Mostrando los participantes ganadores de 6 aciertos")
     with open(path,encoding='utf-8') as file:
         lector = csv.reader(file)
-        next(lector)
+
         for line in lector:
-            cont=0
             #print(line)
             for palabra in line:
                 segmentado=palabra.split(":")
+                cont=0
                 for i in range(2,10,1):
                     #print("Segmento:"+segmentado[i])
                     for j in numerosGanadores:
                         #print("numeroGanador "+str(j))
                         if int(segmentado[i])==int(j):
                             cont=cont+1
+                            #print(segmentado[i]+"----"+str(j))
                         
                 #print(cont)
-                if cont==6:
+                if cont>=6:
                     print(segmentado[0]+" "+segmentado[1]+" ha ganado 400000")
 
 
