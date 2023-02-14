@@ -82,6 +82,7 @@ def menu_juego(nombreJugador):
             with open(pathTxt+nombreJugador+".txt",mode="a",encoding="utf-8") as file:
                 file.write(str(dado)+"\n")
         elif opcion==2:
+            #try except que anula cualquier error
             try:
                 #Sin nada de mode se lee
                 with open(pathTxt+nombreJugador+".txt",encoding="utf-8") as file:
