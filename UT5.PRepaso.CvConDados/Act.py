@@ -90,7 +90,7 @@ def menu_juego(nombreJugador):
                 #Sin nada de mode se lee
                 with open(pathTxt+nombreJugador+".txt",encoding="utf-8") as file:
                     for linea in file:
-                        print(linea+"\n")
+                        print("-"+linea.replace("\n", ""))
             except:
                 print("No existe el fichero...")
                 
