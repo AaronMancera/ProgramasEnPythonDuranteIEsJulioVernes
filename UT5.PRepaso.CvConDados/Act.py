@@ -9,7 +9,10 @@ Programa con menu cuyo objetivo es guardar y alcenar las tiradas de diferentes j
 '''
 import csv
 import random
-
+#string[start:end:step]
+#string[-1] el final de la cadena
+#string[0:5] empieza en el principio y acaba en el 5
+#string[2:6] empieza en el 2 y acaba en el 6
 #len(lista/diccionario/conjunto/tupla)
 # if 0 in lista true si existe o false si no
 #conjunto={} este es para quitar datos repetidos
