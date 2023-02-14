@@ -26,13 +26,14 @@ def calcular_precio_inmueble(inmueble):
         inmueble['precio'] = inmueble['metros'] * 1000 + inmueble['habitaciones'] * 5000 + inmueble['garaje'] * 15000
     elif inmueble['zona'] == 'B':
             inmueble['precio'] = inmueble['metros'] * 1200 + inmueble['habitaciones'] * 5500 + inmueble['garaje'] * 16000
-    return inmueble
+    #return inmueble
 #Se busca dentro del diccionario de inmueble cuales son los que te puedes permitir
 def buscar_inmuebles(dicDeInmueble,presupuesto):
     resultado = []
     for i in range(len(dicDeInmueble)):
         if dicDeInmueble[i]['precio'] <= presupuesto:
             resultado.append(dicDeInmueble[i])
+    #El return es util si al acabar el metodo queremos la salida de una variable local de la funcion, antes era indiferente que hagamos return de inmueble pues no mstrabamos la salida ni la recogiamos al modificar una variable global
     return resultado
 
 listaDePisos = [{'año': 2000, 'metros': 100, 'habitaciones': 3, 'garaje': True, 'zona': 'A'},
